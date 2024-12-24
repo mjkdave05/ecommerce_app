@@ -1,4 +1,4 @@
 import 'package:flutter/material.dart';
 
-const kcontentColor = Color(0xffF5F5F5);
-const kprimaryColor = Color(0xffff990e);
+const contentColor = Color(0xffF5F5F5);
+const primaryColor = Color(0xffff990e);
