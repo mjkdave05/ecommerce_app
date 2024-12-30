@@ -14,6 +14,13 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int cuttentIndex = 2;
+  List screens = const [
+    Scaffold(),
+    FavoriteScreen(),
+    HomeScreen(),
+    CartScreen(),
+    Scaffold(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,13 +28,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         onPressed: () {
           setState(() {
             cuttentIndex = 2;
-            List screens = const [
-              Scaffold(),
-              FavoriteScreen(),
-              HomeScreen(),
-              CartScreen(),
-              Scaffold(),
-            ];
+
           });
         },
       shape: const CircleBorder(),
@@ -102,6 +103,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ],
         ),
       ),
+      body: screens[cuttentIndex],
     );
   }
 }
