@@ -15,21 +15,21 @@ class CustomAppBar extends StatelessWidget {
         IconButton(
           style: IconButton.styleFrom(
             backgroundColor: contentColor,
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(15),
           ),
           onPressed: () {},
           icon: Image.asset(
             "assets/images/icon.png",
-            height: 20,
+            height: 15,
           ),
         ),
         IconButton(
           style: IconButton.styleFrom(
             backgroundColor: contentColor,
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(15),
           ),
           onPressed: () {},
-          iconSize: 30,
+          iconSize: 25,
           icon: Icon(
             Icons.notifications_outlined,
           ),

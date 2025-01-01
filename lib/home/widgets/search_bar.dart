@@ -1,8 +1,19 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:flutter/material.dart';
 
-class SearchBar extends StatelessWidget {
-  const SearchBar({super.key});
+class CustomSearchBar extends StatelessWidget {
+  final String hintText;
+  final Icon leadingIcon;
+  final Icon trailingIcon;
+  final VoidCallback? onTrailingIconPressed;
+
+  const CustomSearchBar({
+    super.key,
+    required this.hintText,
+    required this.leadingIcon,
+    required this.trailingIcon,
+    this.onTrailingIconPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,35 +24,31 @@ class SearchBar extends StatelessWidget {
         color: contentColor,
         borderRadius: BorderRadius.circular(30),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         children: [
-          Icon(
-            Icons.search,
-            color: Colors.grey,
-            size: 30,
-          ),
-          SizedBox( width: 10,),
-          Flexible(
-            flex: 4,
+          leadingIcon,
+          const SizedBox(width: 10),
+          Expanded(
             child: TextField(
               decoration: InputDecoration(
-                hintText: "Search....", border: InputBorder.none,
+                hintText: hintText,
+                hintStyle: const TextStyle(color: Colors.grey),
+                border: InputBorder.none,
               ),
+              style: const TextStyle(color: Colors.black),
             ),
           ),
           Container(
             height: 25,
             width: 1.5,
-            color: Colors.grey,
+            color: Colors.grey.shade300,
+            margin: const EdgeInsets.symmetric(horizontal: 10),
           ),
           IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.tune,
-              color: Colors.grey,
-            ),
-          )
+            onPressed: onTrailingIconPressed,
+            icon: trailingIcon,
+          ),
         ],
       ),
     );
