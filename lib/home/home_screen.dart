@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/home/widgets/category.dart';
 import 'package:ecommerce_app/home/widgets/home_app_bar.dart';
 import 'package:ecommerce_app/home/widgets/image_slider.dart';
 import 'package:ecommerce_app/home/widgets/search_bar.dart'; // Ensure this imports the correct file
@@ -48,7 +49,39 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
               const SizedBox(height: 20),
-              // Add more sections here
+              // for Categories selection
+              Categories(),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Special For You",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "See all",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      color: Colors.black54,
+                    ),
+                  ),
+                ],
+              ),
+              // for shopping items
+              GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                  ),
+                itemCount: products.lenght,
+                itemBuilder: (context, index) {
+                    return;
+                },
+              ),
             ],
           ),
         ),
