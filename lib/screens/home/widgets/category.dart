@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../models/category.dart';
+import '../../../models/category.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});
@@ -30,7 +30,7 @@ class Categories extends StatelessWidget {
               Text(
                 categories[index].title,
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
               )

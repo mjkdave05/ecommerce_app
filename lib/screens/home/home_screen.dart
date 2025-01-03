@@ -1,8 +1,12 @@
-import 'package:ecommerce_app/home/widgets/category.dart';
-import 'package:ecommerce_app/home/widgets/home_app_bar.dart';
-import 'package:ecommerce_app/home/widgets/image_slider.dart';
-import 'package:ecommerce_app/home/widgets/search_bar.dart'; // Ensure this imports the correct file
+import 'package:ecommerce_app/screens/home/widgets/category.dart';
+import 'package:ecommerce_app/screens/home/widgets/home_app_bar.dart';
+import 'package:ecommerce_app/screens/home/widgets/image_slider.dart';
+import 'package:ecommerce_app/screens/home/widgets/product_card.dart';
+import 'package:ecommerce_app/screens/home/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
+
+import '../../models/product_model.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 35),
+              const SizedBox(height: 30),
               // Custom App Bar
               const CustomAppBar(),
               const SizedBox(height: 20),
@@ -51,14 +55,13 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 20),
               // for Categories selection
               Categories(),
-              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "Special For You",
                     style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -74,12 +77,19 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               // for shopping items
               GridView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
+                      childAspectRatio: 0.78,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
                   ),
-                itemCount: products.lenght,
+                itemCount: products.length,
                 itemBuilder: (context, index) {
-                    return;
+                    return ProductCard(
+                        product: products[index],
+                    );
                 },
               ),
             ],

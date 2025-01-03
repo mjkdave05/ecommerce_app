@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/cart/cart_screen.dart';
-import 'package:ecommerce_app/favorite/favorite_screen.dart';
-import 'package:ecommerce_app/home/home_screen.dart';
+import 'package:ecommerce_app/screens/cart/cart_screen.dart';
+import 'package:ecommerce_app/screens/favorite/favorite_screen.dart';
+import 'package:ecommerce_app/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';

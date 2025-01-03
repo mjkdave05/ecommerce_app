@@ -20,7 +20,7 @@ final List<Category> categories = [
     image: "assets/images/beauty.png",
   ),
   Category(
-    title: "Women's Fashion",
+    title: "Women's\nFashion",
     image: "assets/images/image1.png",
   ),
   Category(
@@ -28,7 +28,7 @@ final List<Category> categories = [
     image: "assets/images/jewelry.png",
   ),
   Category(
-    title: "Women's Fashion ",
+    title: "Men's\nFashion ",
     image: "assets/images/men.png",
   ),
 ];
