@@ -29,7 +29,7 @@ class Product {
 final List<Product> products = [
   Product(
       title: "Wireless Headphone",
-      description: "Lorem",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       image: "assets/images/all/wireless.png",
       review: "(320 Reviews)",
       seller: "Tariqul Isalm",
@@ -45,7 +45,7 @@ final List<Product> products = [
   ),
   Product(
     title: "Woman Sweter",
-    description: "Lorem",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     image: "assets/images/all/sweet.png",
     review: "(132 Reviews)",
     seller: "Joy Store",
@@ -61,7 +61,7 @@ final List<Product> products = [
   ),
   Product(
     title: "Smart Watch",
-    description: "Lorem",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     image: "assets/images/all/miband.jpg",
     review: "(20 Reviews)",
     seller: "Ram Dos",
@@ -77,7 +77,7 @@ final List<Product> products = [
   ),
   Product(
     title: "Mens Jacket",
-    description: "Lorem",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     image: "assets/images/all/jacket.png",
     review: "(20 Reviews)",
     seller: "Jacket store",
