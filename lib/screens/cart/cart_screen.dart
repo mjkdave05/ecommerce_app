@@ -1,15 +1,34 @@
 import 'package:ecommerce_app/Provider/cart_provider.dart';
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/screens/bottom_nav_bar.dart';
+import 'package:ecommerce_app/screens/cart/check_out.dart';
 import 'package:flutter/material.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
 
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     final provider = CartProvider.of(context);
     final finalList = provider.cart;
+    // for quantity
+    productQuantity(IconData icon, int index) {
+      return GestureDetector(onTap: () {
+        setState(() {
+          icon == Icons.add
+              ? provider.incrementQtn(index)
+              : provider.decrementQtn(index);
+        });
+      },
+        child: Icon(icon, size: 20,),
+      );
+    }
+
     return Scaffold(
       backgroundColor: contentColor,
       body: SafeArea(
@@ -39,7 +58,7 @@ class CartScreen extends StatelessWidget {
                     "My Cart",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 25,
+                      fontSize: 24,
                     ),
                   ),
                     Container(),
@@ -54,20 +73,21 @@ class CartScreen extends StatelessWidget {
                         return Stack(
                           children: [
                             Padding(
-                                padding: EdgeInsets.all(15),
+                                padding: EdgeInsets.all(8),
                               child: Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(20),
                                 ),
-                                padding: EdgeInsets.all(20),
+                                padding: EdgeInsets.all(10),
                                 child: Row(
                                   children: [
                                     Container(
-                                      height: 100,
-                                      width: 90,
+                                      height: 110,
+                                      width: 100,
                                       decoration: BoxDecoration(
+                                        color: contentColor,
                                         borderRadius: BorderRadius.circular(20),
                                       ),
                                       padding: EdgeInsets.all(10),
@@ -81,7 +101,7 @@ class CartScreen extends StatelessWidget {
                                           cartItems.title,
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 16,
+                                            fontSize: 14,
                                           ),
                                         ),
                                         SizedBox(height: 5,),
@@ -89,7 +109,7 @@ class CartScreen extends StatelessWidget {
                                           cartItems.category,
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 14,
+                                            fontSize: 13,
                                             color: Colors.grey.shade400,
                                           ),
                                         ),
@@ -98,20 +118,72 @@ class CartScreen extends StatelessWidget {
                                           "\$${cartItems.price}",
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 14,
+                                            fontSize: 13,
                                           ),
                                         ),
                                       ],
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
+                            ),
+                            Positioned(
+                              top: 35,
+                                right: 35,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    IconButton(
+                                        onPressed: () {
+                                          finalList.removeAt(index);
+                                          setState(() {});
+                                        },
+                                        icon: Icon(
+                                          Icons.delete,
+                                          color: Colors.red,
+                                          size: 25,
+                                        ),
+                                    ),
+                                    SizedBox(height: 10,),
+                                    Container(
+                                      height: 40,
+                                      decoration: BoxDecoration(
+                                        color: contentColor,
+                                        border: Border.all(
+                                          color: Colors.grey.shade200,
+                                          width: 2,
+                                        ),
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          SizedBox(width: 10,),
+                                          productQuantity(Icons.add, index),
+                                          SizedBox(width: 10,),
+                                          Text(
+                                              cartItems.quantity.toString(),
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                          SizedBox(width: 10,),
+                                          productQuantity(Icons.remove, index),
+                                          SizedBox(width: 10,),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                             ),
                           ],
                         );
                       },
                   ),
               ),
+
+              // for total and checkout
+              CheckOutBox(),
             ],
           ),
       ),
