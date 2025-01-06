@@ -12,6 +12,10 @@ class Category {
 
 final List<Category> categories = [
   Category(
+    title: "All",
+    image: "assets/images/all.png",
+  ),
+  Category(
       title: "Shoes",
       image: "assets/images/shoes.png",
   ),

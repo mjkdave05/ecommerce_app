@@ -1,6 +1,5 @@
 import 'package:ecommerce_app/Provider/cart_provider.dart';
 import 'package:ecommerce_app/constants.dart';
-import 'package:ecommerce_app/screens/bottom_nav_bar.dart';
 import 'package:ecommerce_app/screens/cart/check_out.dart';
 import 'package:flutter/material.dart';
 
@@ -31,42 +30,54 @@ class _CartScreenState extends State<CartScreen> {
 
     return Scaffold(
       backgroundColor: contentColor,
+      appBar: AppBar(
+        backgroundColor: contentColor,
+        title: Text(
+          "My Cart",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 25
+          ),
+        ),
+        centerTitle: true,
+      ),
       body: SafeArea(
           child: Column(
             children: [
-              Padding(
-                padding: EdgeInsets.all(8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                  IconButton(
-                    style: IconButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      padding: EdgeInsets.all(15),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => BottomNavBar(),
-                        ),
-                      );
-                    },
-                    icon: Icon(Icons.arrow_back),
-                  ),
-                  Text(
-                    "My Cart",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
-                  ),
-                    Container(),
-                ],
-                ),
-              ),
+              // Padding(
+              //   padding: EdgeInsets.all(8),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: [
+              //     IconButton(
+              //       style: IconButton.styleFrom(
+              //         backgroundColor: Colors.white,
+              //         padding: EdgeInsets.all(15),
+              //       ),
+              //       onPressed: () {
+              //         Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //               builder: (context) => BottomNavBar(),
+              //           ),
+              //         );
+              //       },
+              //       icon: Icon(Icons.arrow_back),
+              //     ),
+              //     Text(
+              //       "My Cart",
+              //       style: TextStyle(
+              //         fontWeight: FontWeight.bold,
+              //         fontSize: 24,
+              //       ),
+              //     ),
+              //       Container(),
+              //   ],
+              //   ),
+              // ),
               Expanded(
                   child: ListView.builder(
+                    shrinkWrap: true,
                     itemCount: finalList.length,
                       itemBuilder: (context, index) {
                       final cartItems = finalList[index];
@@ -84,7 +95,7 @@ class _CartScreenState extends State<CartScreen> {
                                 child: Row(
                                   children: [
                                     Container(
-                                      height: 110,
+                                      height: 120,
                                       width: 100,
                                       decoration: BoxDecoration(
                                         color: contentColor,
